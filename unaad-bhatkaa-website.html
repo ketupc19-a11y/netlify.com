@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<!-- ============================================================
+     UNAAD BHATKAA — SAHYADRI TREKKING WEBSITE
+     ============================================================
+     HOW TO CUSTOMIZE:
+     1. Search for "CUSTOMIZE:" comments throughout this file
+     2. Change text, colors, prices, and trek details as needed
+     3. Open this file in any browser to preview
+     4. Host it on GitHub Pages, Netlify, or any web host for free
+     ============================================================ -->
+
+<!-- CUSTOMIZE: Change the browser tab title -->
+<title>UnaadBhatkaa – Sahyadri Treks, Maharashtra</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet"/>
+
+<style>
+/* ============================================================
+   CUSTOMIZE: COLORS — change these to restyle the whole site
+   ============================================================ */
+:root {
+  --cream:   #F5F0E8;   /* page background */
+  --forest:  #1C3A2A;   /* primary dark green (nav, buttons) */
+  --moss:    #2E5E3E;   /* hover state green */
+  --sage:    #5C8C6A;   /* light green accents */
+  --sand:    #C8A96E;   /* gold accent (logo, highlights) */
+  --rust:    #A84C2A;   /* fort badge color */
+  --mist:    #E8EDE4;   /* light grey-green surfaces */
+  --dark:    #0F1F17;   /* darkest background (footer, hero) */
+  --text:    #2A2A2A;   /* body text */
+  --textmid: #5A5A5A;   /* secondary text */
+}
+
+/* ============================================================
+   CUSTOMIZE: FONTS — swap out font names from Google Fonts
+   ============================================================ */
+/* Display font (headings): 'Playfair Display' */
+/* Brand font (logo): 'Bebas Neue' */
+/* Body font: 'DM Sans' */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ---- NAVIGATION ---- */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 3rem;
+  background: rgba(28,58,42,0.96);
+  backdrop-filter: blur(8px);
+}
+.logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem; color: var(--sand); letter-spacing: 3px; cursor: pointer;
+}
+.logo span { color: #fff; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  color: rgba(255,255,255,0.8); text-decoration: none;
+  font-size: 0.875rem; font-weight: 500; letter-spacing: 0.5px; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--sand); }
+.nav-cta {
+  background: var(--sand); color: var(--dark);
+  padding: 0.5rem 1.5rem; border-radius: 2px;
+  font-weight: 500; font-size: 0.875rem; cursor: pointer; border: none; transition: background 0.2s;
+}
+.nav-cta:hover { background: #d4b478; }
+
+/* ---- HERO ---- */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(160deg, var(--dark) 0%, var(--forest) 60%, #1a3d28 100%);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0 3rem; position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%235C8C6A' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-tag {
+  color: var(--sand); font-size: 0.8rem; letter-spacing: 4px;
+  text-transform: uppercase; margin-bottom: 1.5rem;
+  opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 7vw, 7rem); font-weight: 900;
+  color: #fff; line-height: 1; margin-bottom: 1.5rem;
+  opacity: 0; animation: fadeUp 0.8s 0.4s forwards;
+}
+.hero h1 em { color: var(--sand); font-style: italic; }
+.hero-sub {
+  color: rgba(255,255,255,0.65); font-size: 1.1rem;
+  max-width: 560px; line-height: 1.7; margin-bottom: 2.5rem;
+  opacity: 0; animation: fadeUp 0.8s 0.6s forwards;
+}
+.hero-btns {
+  display: flex; gap: 1rem;
+  opacity: 0; animation: fadeUp 0.8s 0.8s forwards;
+}
+.btn-primary {
+  background: var(--sand); color: var(--dark);
+  padding: 0.9rem 2.5rem; border: none; font-size: 1rem;
+  font-weight: 500; cursor: pointer; border-radius: 2px;
+  transition: all 0.2s; letter-spacing: 0.5px;
+}
+.btn-primary:hover { background: #d4b478; transform: translateY(-2px); }
+.btn-outline {
+  background: transparent; color: #fff;
+  padding: 0.9rem 2.5rem; border: 1px solid rgba(255,255,255,0.3);
+  font-size: 1rem; cursor: pointer; border-radius: 2px; transition: all 0.2s; letter-spacing: 0.5px;
+}
+.btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.05); }
+.hero-stats {
+  position: absolute; bottom: 3rem; right: 3rem;
+  display: flex; gap: 3rem;
+  opacity: 0; animation: fadeUp 0.8s 1s forwards;
+}
+.stat { text-align: right; }
+.stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--sand); line-height: 1; }
+.stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase; }
+
+/* ---- SECTIONS ---- */
+section { padding: 6rem 3rem; }
+.section-tag { color: var(--rust); font-size: 0.75rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 0.75rem; }
+.section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem,4vw,3.5rem); font-weight: 700; line-height: 1.1; margin-bottom: 1rem; }
+.section-sub { color: var(--textmid); max-width: 600px; line-height: 1.7; margin-bottom: 3rem; }
+
+/* ---- TREK CARDS ---- */
+.treks-section { background: var(--cream); }
+.filter-bar { display: flex; gap: 0.75rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+.filter-btn {
+  padding: 0.5rem 1.25rem; border: 1.5px solid #ccc;
+  background: transparent; border-radius: 2px; font-size: 0.85rem;
+  cursor: pointer; transition: all 0.2s; color: var(--textmid);
+}
+.filter-btn.active, .filter-btn:hover { border-color: var(--moss); background: var(--moss); color: #fff; }
+.treks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); gap: 2rem; }
+.trek-card {
+  background: #fff; border-radius: 4px; overflow: hidden;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  transition: transform 0.3s, box-shadow 0.3s; cursor: pointer;
+}
+.trek-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+.trek-img { height: 220px; position: relative; overflow: hidden; }
+.trek-img-inner { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 5rem; }
+.trek-badge {
+  position: absolute; top: 1rem; left: 1rem;
+  padding: 0.3rem 0.75rem; border-radius: 2px;
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+}
+.badge-fort     { background: var(--rust); color: #fff; }
+.badge-waterfall{ background: #1e5f8c;    color: #fff; }
+.badge-trail    { background: var(--moss); color: #fff; }
+.badge-camping  { background: #5a3e1b;    color: #fff; }
+.trek-difficulty {
+  position: absolute; top: 1rem; right: 1rem;
+  padding: 0.3rem 0.75rem; border-radius: 2px;
+  font-size: 0.7rem; font-weight: 500;
+  background: rgba(0,0,0,0.6); color: #fff;
+}
+.trek-body { padding: 1.5rem; }
+.trek-name { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.4rem; }
+.trek-loc { font-size: 0.82rem; color: var(--textmid); margin-bottom: 0.75rem; }
+.trek-meta { display: flex; gap: 1.5rem; margin-bottom: 1rem; font-size: 0.82rem; color: var(--textmid); }
+.trek-desc { font-size: 0.875rem; color: var(--textmid); line-height: 1.6; margin-bottom: 1.25rem; }
+.trek-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 1rem; border-top: 1px solid #f0f0f0; }
+.trek-price { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--forest); }
+.trek-price span { font-size: 0.8rem; font-family: 'DM Sans', sans-serif; color: var(--textmid); font-weight: 400; }
+.book-btn { background: var(--forest); color: #fff; border: none; padding: 0.6rem 1.25rem; border-radius: 2px; font-size: 0.85rem; cursor: pointer; transition: background 0.2s; }
+.book-btn:hover { background: var(--moss); }
+
+/* ---- BOOKING MODAL ---- */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 200;
+  display: none; align-items: center; justify-content: center; padding: 1rem;
+}
+.modal-overlay.open { display: flex; }
+.modal { background: #fff; border-radius: 6px; width: 100%; max-width: 860px; max-height: 90vh; overflow-y: auto; position: relative; }
+.modal-close {
+  position: absolute; top: 1rem; right: 1rem; background: none; border: none;
+  font-size: 1.5rem; cursor: pointer; color: var(--textmid); z-index: 10;
+  width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+  border-radius: 50%; transition: background 0.2s;
+}
+.modal-close:hover { background: #f0f0f0; }
+.modal-hero { height: 280px; display: flex; align-items: center; justify-content: center; font-size: 7rem; position: relative; }
+.modal-hero-info {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+}
+.modal-hero-info h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: #fff; font-weight: 700; }
+.modal-hero-info p { color: rgba(255,255,255,0.8); font-size: 0.9rem; }
+.modal-body { padding: 2rem; }
+.itinerary-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 1.25rem; color: var(--forest); }
+.day { display: flex; gap: 1.25rem; margin-bottom: 1.5rem; }
+.day-num {
+  flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%;
+  background: var(--forest); color: var(--sand);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; margin-top: 2px;
+}
+.day-title { font-weight: 500; margin-bottom: 0.3rem; }
+.day-detail { font-size: 0.875rem; color: var(--textmid); line-height: 1.65; }
+.day-highlights { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
+.highlight-tag { background: var(--mist); color: var(--moss); font-size: 0.75rem; padding: 0.25rem 0.6rem; border-radius: 2px; }
+.inclusions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin: 1rem 0; }
+.inc-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--textmid); }
+.inc-icon { color: var(--moss); }
+.booking-form { background: var(--mist); border-radius: 4px; padding: 2rem; margin-top: 1.5rem; }
+.booking-form h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 1.25rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+.form-group label { font-size: 0.82rem; font-weight: 500; color: var(--textmid); }
+.form-group input, .form-group select {
+  padding: 0.7rem 1rem; border: 1.5px solid #ddd; border-radius: 3px;
+  font-size: 0.9rem; font-family: 'DM Sans', sans-serif; background: #fff; transition: border-color 0.2s;
+}
+.form-group input:focus, .form-group select:focus { outline: none; border-color: var(--moss); }
+.price-summary { background: #fff; border-radius: 3px; padding: 1.25rem; margin: 1rem 0; border: 1px solid #e8e8e8; }
+.price-row { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--textmid); }
+.price-row.total { font-weight: 600; color: var(--text); border-top: 1px solid #eee; padding-top: 0.5rem; margin-top: 0.5rem; font-size: 1rem; }
+.confirm-btn { width: 100%; padding: 1rem; background: var(--forest); color: #fff; border: none; border-radius: 3px; font-size: 1rem; font-weight: 500; cursor: pointer; transition: background 0.2s; }
+.confirm-btn:hover { background: var(--moss); }
+
+/* ---- WHY US ---- */
+.why-section { background: var(--forest); color: #fff; }
+.why-section .section-title { color: #fff; }
+.why-section .section-tag { color: var(--sand); }
+.why-section .section-sub { color: rgba(255,255,255,0.6); }
+.why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 2rem; }
+.why-card { border-top: 2px solid var(--sand); padding-top: 1.5rem; }
+.why-icon { font-size: 2rem; margin-bottom: 1rem; }
+.why-card h4 { font-size: 1.05rem; font-weight: 500; margin-bottom: 0.5rem; }
+.why-card p { font-size: 0.875rem; color: rgba(255,255,255,0.6); line-height: 1.65; }
+
+/* ---- TESTIMONIALS ---- */
+.testi-section { background: var(--dark); color: #fff; padding: 6rem 3rem; }
+.testi-section .section-tag { color: var(--sand); }
+.testi-section .section-title { color: #fff; }
+.testi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 2rem; margin-top: 3rem; }
+.testi-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 1.75rem; }
+.stars { color: var(--sand); font-size: 0.9rem; margin-bottom: 1rem; }
+.testi-text { font-size: 0.9rem; line-height: 1.7; color: rgba(255,255,255,0.8); margin-bottom: 1.25rem; font-style: italic; }
+.testi-author { font-size: 0.82rem; color: var(--sand); font-weight: 500; }
+.testi-trek { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+
+/* ---- FOOTER ---- */
+footer { background: var(--dark); color: rgba(255,255,255,0.5); padding: 3rem; border-top: 1px solid rgba(255,255,255,0.05); }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--sand); letter-spacing: 3px; }
+.footer-links { display: flex; gap: 2rem; }
+.footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+.footer-links a:hover { color: #fff; }
+.footer-copy { font-size: 0.8rem; margin-top: 1.5rem; text-align: center; }
+
+/* ---- SUCCESS POPUP ---- */
+.success-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 300; display: none; align-items: center; justify-content: center; }
+.success-overlay.show { display: flex; }
+.success-box { background: #fff; border-radius: 6px; padding: 3rem; text-align: center; max-width: 480px; width: 90%; }
+.success-icon { font-size: 4rem; margin-bottom: 1rem; }
+.success-box h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 0.75rem; color: var(--forest); }
+.success-box p { color: var(--textmid); line-height: 1.6; margin-bottom: 1.5rem; }
+.success-close { background: var(--forest); color: #fff; border: none; padding: 0.8rem 2rem; border-radius: 2px; font-size: 1rem; cursor: pointer; }
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION BAR
+     CUSTOMIZE: Logo text, nav links, button label
+     ============================================================ -->
+<nav>
+  <!-- CUSTOMIZE: Your brand name. The part before <span> is colored gold, inside <span> is white -->
+  <div class="logo">Unaad<span>Bhatkaa</span></div>
+
+  <ul class="nav-links">
+    <!-- CUSTOMIZE: Add, remove, or rename nav links -->
+    <li><a href="#treks">Treks</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#testimonials">Stories</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <button class="nav-cta" onclick="document.getElementById('treks').scrollIntoView({behavior:'smooth'})">
+    <!-- CUSTOMIZE: Nav button label -->
+    Book a Trek
+  </button>
+</nav>
+
+
+<!-- ============================================================
+     HERO SECTION
+     CUSTOMIZE: Tag line, headline, subtext, button labels, stats
+     ============================================================ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div style="position:relative;z-index:2;max-width:1200px;">
+
+    <!-- CUSTOMIZE: Small tag above headline -->
+    <p class="hero-tag">📍 Sahyadri Mountains, Maharashtra</p>
+
+    <!-- CUSTOMIZE: Main headline — use <em> for italic gold text -->
+    <h1>Where the<br/><em>Mountains</em><br/>Call You Home</h1>
+
+    <!-- CUSTOMIZE: Hero description paragraph -->
+    <p class="hero-sub">Conquer ancient forts, chase monsoon waterfalls, and walk forgotten trails through the heart of the Western Ghats — with expert guides, every step of the way.</p>
+
+    <div class="hero-btns">
+      <!-- CUSTOMIZE: Button labels -->
+      <button class="btn-primary" onclick="document.getElementById('treks').scrollIntoView({behavior:'smooth'})">Explore Treks</button>
+      <button class="btn-outline"  onclick="document.getElementById('why').scrollIntoView({behavior:'smooth'})">Our Story</button>
+    </div>
+  </div>
+
+  <!-- CUSTOMIZE: Stats at bottom-right of hero — change numbers and labels -->
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">48+</div><div class="stat-label">Trek Routes</div></div>
+    <div class="stat"><div class="stat-num">6200+</div><div class="stat-label">Happy Trekkers</div></div>
+    <div class="stat"><div class="stat-num">12+</div><div class="stat-label">Years in Sahyadri</div></div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TREKS SECTION
+     CUSTOMIZE: Section labels, and the TREKS array in the <script> below
+     ============================================================ -->
+<section class="treks-section" id="treks">
+  <div style="max-width:1200px;margin:0 auto;">
+
+    <!-- CUSTOMIZE: Section heading text -->
+    <p class="section-tag">Our Expeditions</p>
+    <h2 class="section-title">Sahyadri Trek Experiences</h2>
+    <p class="section-sub">Handcrafted itineraries across Maharashtra's most breathtaking forts, waterfalls, and wilderness trails.</p>
+
+    <!-- CUSTOMIZE: Filter buttons — labels match the `type` field in TREKS data below -->
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterTreks('all',this)">All Treks</button>
+      <button class="filter-btn" onclick="filterTreks('fort',this)">🏰 Forts</button>
+      <button class="filter-btn" onclick="filterTreks('waterfall',this)">💧 Waterfalls</button>
+      <button class="filter-btn" onclick="filterTreks('trail',this)">🥾 Trails</button>
+      <button class="filter-btn" onclick="filterTreks('camping',this)">⛺ Camping</button>
+    </div>
+
+    <!-- Trek cards are rendered here by JavaScript -->
+    <div class="treks-grid" id="treksGrid"></div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WHY US SECTION
+     CUSTOMIZE: Heading, description, and each feature card below
+     ============================================================ -->
+<section class="why-section" id="why">
+  <div style="max-width:1200px;margin:0 auto;">
+
+    <p class="section-tag">Why UnaadBhatkaa</p>
+    <h2 class="section-title">We Live These Mountains</h2>
+    <p class="section-sub">Born from a love for the Sahyadris, we're not a travel agency — we're fellow trekkers who happen to know every hidden trail.</p>
+
+    <div class="why-grid">
+
+      <!-- CUSTOMIZE: Add, remove, or edit these feature cards -->
+      <div class="why-card">
+        <div class="why-icon">🧭</div>
+        <h4>Expert Local Guides</h4>
+        <p>All our guides are Sahyadri-born, with 5+ years of mountain expertise and wilderness first-aid certification.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏕️</div>
+        <h4>Premium Camping Gear</h4>
+        <p>We provide high-quality tents, sleeping bags, and cooking equipment — you just bring yourself.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🥘</div>
+        <h4>Wholesome Meals</h4>
+        <p>Hot home-style Maharashtrian meals at every camp — dal-rice, bhakri, and energizing trail snacks.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🚑</div>
+        <h4>Safety First</h4>
+        <p>Every trek has a trained first-aider, a solid emergency protocol, and communication equipment.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🌿</div>
+        <h4>Leave No Trace</h4>
+        <p>We follow strict eco-guidelines — no plastic, no waste, and an annual trail-cleaning drive.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📸</div>
+        <h4>Memory Captured</h4>
+        <p>Our photography volunteers capture your best moments; photo album delivered post-trek.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TESTIMONIALS SECTION
+     CUSTOMIZE: Each testi-card — quote, author name, trek name
+     ============================================================ -->
+<section class="testi-section" id="testimonials">
+  <div style="max-width:1200px;margin:0 auto;">
+    <p class="section-tag">Trekker Stories</p>
+    <h2 class="section-title">Voices from the Trail</h2>
+
+    <div class="testi-grid">
+
+      <!-- CUSTOMIZE: Add, remove, or edit testimonial cards -->
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"The Rajmachi overnight was life-changing. Our guide Suresh knew every story behind every stone wall. I've never felt more alive than watching sunrise from that fort."</p>
+        <div class="testi-author">Priya Kulkarni</div>
+        <div class="testi-trek">Rajmachi Fort Trek, Pune</div>
+      </div>
+
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"Harishchandragad blew my mind. The Kokankada cliff was beyond anything I imagined. UnaadBhatkaa's team was professional, warm, and made it feel like a family trip."</p>
+        <div class="testi-author">Aarav Mehta</div>
+        <div class="testi-trek">Harishchandragad, Nashik</div>
+      </div>
+
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"Monsoon at Bhimashankar was magical — waterfalls everywhere, mist in the forest, and the sheer Shambhu Mahadev shrine at the top. Worth every raindrop."</p>
+        <div class="testi-author">Sneha Patil</div>
+        <div class="testi-trek">Bhimashankar Monsoon Trek, Pune</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+     CUSTOMIZE: Logo, links (replace # with real URLs), copyright text
+     ============================================================ -->
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="footer-logo">UnaadBhatkaa</div>
+    <div class="footer-links">
+      <!-- CUSTOMIZE: Replace # with your actual social/contact links -->
+      <a href="#">Instagram</a>
+      <a href="#">WhatsApp</a>
+      <a href="#">Email Us</a>
+      <a href="#">Terms</a>
+    </div>
+  </div>
+  <!-- CUSTOMIZE: Copyright line -->
+  <div class="footer-copy">© 2025 UnaadBhatkaa. Crafted with ❤️ for the Sahyadris. Maharashtra, India.</div>
+</footer>
+
+
+<!-- Booking Modal (auto-generated, no edits needed here) -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modalContent"></div>
+</div>
+
+<!-- Success Popup (auto-generated) -->
+<div class="success-overlay" id="successOverlay">
+  <div class="success-box">
+    <div class="success-icon">🎉</div>
+    <!-- CUSTOMIZE: Booking success message -->
+    <h2>Booking Confirmed!</h2>
+    <p>Your adventure is locked in! Our team will reach out within 24 hours with pre-trek details, packing lists, and meetup instructions.<br/><br/>Check your email for a confirmation.</p>
+    <button class="success-close" onclick="document.getElementById('successOverlay').classList.remove('show')">Back to Treks</button>
+  </div>
+</div>
+
+
+<script>
+/* ============================================================
+   TREK DATA — CUSTOMIZE THIS SECTION
+   To add a new trek: copy one entire { ... } block,
+   paste it with a comma after the last one, and fill in your details.
+   To remove a trek: delete its entire { ... } block.
+   ============================================================ */
+const TREKS = [
+
+  {
+    /* ---- CUSTOMIZE: Trek 1 ---- */
+    id: 1,
+    type: 'fort',                              /* CUSTOMIZE: 'fort' | 'waterfall' | 'trail' | 'camping' */
+    emoji: '🏰',                               /* CUSTOMIZE: Emoji shown on card & modal */
+    bg: 'linear-gradient(135deg,#3d2b1f,#8b4513)', /* CUSTOMIZE: Card gradient (CSS) */
+    name: 'Rajmachi Fort Trek',                /* CUSTOMIZE: Trek name */
+    location: 'Lonavala, Pune District',       /* CUSTOMIZE: Location */
+    difficulty: 'Easy–Moderate',               /* CUSTOMIZE: 'Easy' | 'Easy–Moderate' | 'Moderate' | 'Difficult' */
+    duration: '2 Days / 1 Night',             /* CUSTOMIZE: Duration */
+    distance: '16 km round trip',             /* CUSTOMIZE: Distance */
+    altitude: '925 m',                        /* CUSTOMIZE: Max altitude */
+    price: 2499,                              /* CUSTOMIZE: Price per person in ₹ */
+    badge: 'Fort',                            /* CUSTOMIZE: Badge text on card */
+    badgeClass: 'badge-fort',                 /* CUSTOMIZE: 'badge-fort' | 'badge-waterfall' | 'badge-trail' | 'badge-camping' */
+    desc: 'Walk through dense forest to reach the twin bastions of Shrivardhan and Manaranjan atop Rajmachi — with an overnight camp under the stars.',
+    itinerary: [
+      {
+        day: '01',
+        title: 'Lonavala → Udhewadi Village → Rajmachi Base Camp',
+        detail: 'Early morning departure from Pune/Mumbai. Arrive Lonavala, begin 8 km trail through bamboo and deciduous forest. Reach Udhewadi village. Traditional lunch. Continue 2 km ascent to base camp.',
+        highlights: ['Bamboo forest trail', 'Udhewadi village walk', 'Base camp setup'],
+      },
+      {
+        day: '02',
+        title: 'Summit Assault – Twin Forts → Return',
+        detail: 'Dawn start for the summit. Climb Shrivardhan fort (8th century Maratha bastion) for panoramic sunrise. Descend and ascend Manaranjan for valley views. Camp breakfast. Return trail to Lonavala by afternoon.',
+        highlights: ['Shrivardhan fort', 'Manaranjan fort', 'Sunrise views', 'Return by 4 PM'],
+      },
+    ],
+    inclusions: ['Expert guide', 'Night camping & tent', 'Dinner + breakfast + lunch', 'First aid kit', 'Photography'],
+  },
+
+  {
+    /* ---- CUSTOMIZE: Trek 2 ---- */
+    id: 2,
+    type: 'fort',
+    emoji: '⚔️',
+    bg: 'linear-gradient(135deg,#1a3a2a,#2e6040)',
+    name: 'Harishchandragad Trek',
+    location: 'Akole, Ahmednagar District',
+    difficulty: 'Difficult',
+    duration: '3 Days / 2 Nights',
+    distance: '24 km round trip',
+    altitude: '1424 m',
+    price: 4499,
+    badge: 'Fort',
+    badgeClass: 'badge-fort',
+    desc: "One of Maharashtra's most legendary treks featuring the impossible Kokankada cliff overhang, ancient Harishchandra temple cave, and a vast plateau kingdom.",
+    itinerary: [
+      {
+        day: '01',
+        title: 'Pune → Khireshwar Village → Base Camp',
+        detail: 'Depart early morning, 4-hour road journey to Khireshwar. Light trek through forest. Set up base camp near the ancient temple. Local bhakri-pith dinner.',
+        highlights: ['Khireshwar village', 'Medicinal herb trail', 'Ancient Shiva temple'],
+      },
+      {
+        day: '02',
+        title: 'Summit Day – Kokankada Cliff & Fort Exploration',
+        detail: 'Alpine start at 4:30 AM. Steep climb via Nali route. Reach the 1424m summit. Walk to Kokankada — the dramatic overhanging cliff with 1000m free-fall below. Explore the fort ruins and ancient cisterns. Camp on the plateau.',
+        highlights: ['Kokankada overhang', '1424m summit', 'Fort cisterns', 'Sunset plateau'],
+      },
+      {
+        day: '03',
+        title: 'Taramati Peak → Descent → Return',
+        detail: 'Morning walk to Taramati Peak (highest point of the fort). Panoramic 360° Sahyadri view. Leisurely descent via Pachnai route. Return to Pune by evening.',
+        highlights: ['Taramati Peak', '360° views', 'Pachnai descent'],
+      },
+    ],
+    inclusions: ['Expert mountain guide', '2 nights camping', 'All meals (5 meals)', 'First aid & emergency kit', 'Group photographs', 'Trek certificate'],
+  },
+
+  {
+    /* ---- CUSTOMIZE: Trek 3 ---- */
+    id: 3,
+    type: 'waterfall',
+    emoji: '💧',
+    bg: 'linear-gradient(135deg,#0a2a4a,#1a5f8c)',
+    name: 'Bhimashankar Monsoon Trek',
+    location: 'Khed, Pune District',
+    difficulty: 'Moderate',
+    duration: '2 Days / 1 Night',
+    distance: '20 km loop',
+    altitude: '1048 m',
+    price: 3199,
+    badge: 'Waterfall',
+    badgeClass: 'badge-waterfall',
+    desc: "The monsoon transforms Bhimashankar into a waterfall paradise. Trek through dense shola forest to the Bhima river source, ancient Jyotirlinga temple, and misty Nagphani peak.",
+    itinerary: [
+      {
+        day: '01',
+        title: 'Pune → Bhimashankar → Shidi Ghat Ascent',
+        detail: 'Morning drive 3 hours. Begin trek at Ganesh Ghat. Climb through tropical shola forest bursting with monsoon waterfalls. Set camp near the ancient Bhimashankar temple complex.',
+        highlights: ['Shola forest trek', 'Multiple waterfalls', 'Bhimashankar temple', 'Wildlife sanctuary'],
+      },
+      {
+        day: '02',
+        title: "Nagphani (Devil's Nose) → Descent → Departure",
+        detail: "Early morning hike to Nagphani — a dramatic rocky outcrop with sweeping valley views. Descend via Shidi Ghat (ladder route). Village lunch. Return to Pune.",
+        highlights: ['Nagphani viewpoint', 'Ladder route descent', 'Giant Malabar squirrel spotting'],
+      },
+    ],
+    inclusions: ['Trained wildlife guide', 'Forest camping', 'All meals', 'Rain gear provided', 'First aid'],
+  },
+
+  {
+    /* ---- CUSTOMIZE: Trek 4 ---- */
+    id: 4,
+    type: 'trail',
+    emoji: '🥾',
+    bg: 'linear-gradient(135deg,#2a1a0a,#6b4c1e)',
+    name: 'Kalsubai Peak Trail',
+    location: 'Igatpuri, Nashik District',
+    difficulty: 'Moderate',
+    duration: '1 Day',
+    distance: '12 km round trip',
+    altitude: '1646 m',
+    price: 1299,
+    badge: 'Trail',
+    badgeClass: 'badge-trail',
+    desc: "Stand on top of Maharashtra on the highest peak in the state. The trail winds through tribal Barari village, iron ladders, and chains before rewarding you with an unparalleled view.",
+    itinerary: [
+      {
+        day: '01',
+        title: 'Bari Village → Kalsubai Summit → Return',
+        detail: 'Pre-dawn start from base at Bari village. Trek through tribal hamlet. Four sections of iron ladders and chains aid the steep ascent. Reach the 1646m summit for sunrise. Explore the Devi Kalsubai temple. Descend and return.',
+        highlights: ['Highest peak in Maharashtra', 'Iron ladder sections', 'Kalsubai temple', 'Sunrise panorama', 'Tribal village walk'],
+      },
+    ],
+    inclusions: ['Local expert guide', 'Breakfast & packed lunch', 'Safety harness for ladders', 'First aid'],
+  },
+
+  {
+    /* ---- CUSTOMIZE: Trek 5 ---- */
+    id: 5,
+    type: 'camping',
+    emoji: '⛺',
+    bg: 'linear-gradient(135deg,#1a1a0a,#4a3e12)',
+    name: 'Torna Fort Star Camp',
+    location: 'Velhe, Pune District',
+    difficulty: 'Moderate',
+    duration: '2 Days / 1 Night',
+    distance: '14 km round trip',
+    altitude: '1403 m',
+    price: 3599,
+    badge: 'Camping',
+    badgeClass: 'badge-camping',
+    desc: "Torna (Prachandagad) — the first fort captured by Shivaji Maharaj at just 16 years old. Trek up, camp overnight inside the ancient walls, and stargaze from 1400m above sea level.",
+    itinerary: [
+      {
+        day: '01',
+        title: 'Velhe → Budhla Machi → Fort Walls Camp',
+        detail: 'Afternoon start. Trek up through scrub jungle and rock-cut steps. Enter the historic fort gates. Set up camp inside the fort complex. Guided heritage walk. Campfire dinner.',
+        highlights: ['Historic Shivaji fort', 'Heritage walk', 'Campfire night', 'Star gazing at 1400m'],
+      },
+      {
+        day: '02',
+        title: 'Sunrise at Zunjar Machi → Descent',
+        detail: 'Sunrise walk to Zunjar Machi — the highest point with sheer drops on three sides. Watch the golden light paint the entire Sahyadri range. Leisurely breakfast inside the fort. Descend to Velhe by noon.',
+        highlights: ['Zunjar Machi sunrise', '360° Sahyadri views', 'Ancient bastions'],
+      },
+    ],
+    inclusions: ['Heritage guide', 'Fort camp setup', 'All meals', 'Campfire', 'Sleeping bag & tent', 'Trek certificate'],
+  },
+
+  {
+    /* ---- CUSTOMIZE: Trek 6 ---- */
+    id: 6,
+    type: 'waterfall',
+    emoji: '🌊',
+    bg: 'linear-gradient(135deg,#0a1a3a,#1a3a6e)',
+    name: 'Sandhan Valley Trek',
+    location: 'Bhandardara, Ahmednagar',
+    difficulty: 'Difficult',
+    duration: '2 Days / 1 Night',
+    distance: '10 km (technical)',
+    altitude: '900 m',
+    price: 3999,
+    badge: 'Waterfall',
+    badgeClass: 'badge-waterfall',
+    desc: "The Valley of Shadows — a dramatic slot canyon cut through the Sahyadri. Wade through cold river pools, scramble over boulders, and sleep in a canyon carved by time.",
+    itinerary: [
+      {
+        day: '01',
+        title: 'Samrad Village → Sandhan Canyon Entry → Camp',
+        detail: 'Early departure. Drive to Samrad via Bhandardara. Begin descent into the canyon. Rappelling section. Wade through waist-deep cold water pools. Set camp inside the canyon.',
+        highlights: ['Canyon rappelling', 'Water wading pools', 'Rocky scrambles', 'Canyon camp'],
+      },
+      {
+        day: '02',
+        title: 'Deep Canyon → Exit → Bhandardara Lake',
+        detail: 'Navigate the second half of the canyon. Exit at Dehne village. Drive to Bhandardara lake for a relaxed afternoon. Return journey.',
+        highlights: ['Canyon exit', 'Bhandardara dam', 'Wilson dam view'],
+      },
+    ],
+    inclusions: ['Technical guide', 'Rappelling equipment', 'Life jackets for pools', 'Canyon camping', 'All meals', 'Safety brief'],
+  },
+
+  {
+    /* ---- CUSTOMIZE: Trek 7 ---- */
+    id: 7,
+    type: 'fort',
+    emoji: '🌅',
+    bg: 'linear-gradient(135deg,#3a1a00,#8c4400)',
+    name: 'Sinhagad Fort Trek',
+    location: 'Pune City Outskirts',
+    difficulty: 'Easy',
+    duration: 'Half Day',
+    distance: '6 km round trip',
+    altitude: '1312 m',
+    price: 799,
+    badge: 'Fort',
+    badgeClass: 'badge-fort',
+    desc: "The 'Lion's Fortress' — scene of the legendary 1670 Battle of Sinhagad. A steep but rewarding 2-hour climb above Pune city with sweeping views and famous local food at the top.",
+    itinerary: [
+      {
+        day: '01',
+        title: 'Sinhagad Base → Summit → Heritage Walk',
+        detail: 'Early morning start. Steep stone-step ascent (1 hour). Guided heritage walk: Tanaji Memorial, Kondana Caves, Devtaki temple. Famous pithla-bhakri meal at top. Descend and return.',
+        highlights: ['Tanaji Memorial', 'Kondana Caves', 'Traditional fort food', 'Pune panorama'],
+      },
+    ],
+    inclusions: ['Local guide', 'Snack meal at top', 'First aid'],
+  },
+
+  {
+    /* ---- CUSTOMIZE: Trek 8 ---- */
+    id: 8,
+    type: 'trail',
+    emoji: '🌿',
+    bg: 'linear-gradient(135deg,#0a2a15,#1a5c30)',
+    name: 'Tamhini Ghat Nature Trail',
+    location: 'Tamhini, Pune District',
+    difficulty: 'Easy',
+    duration: 'Full Day',
+    distance: '8 km',
+    altitude: '800 m',
+    price: 1499,
+    badge: 'Trail',
+    badgeClass: 'badge-trail',
+    desc: "A gentle forest walk through Tamhini Ghat — Maharashtra's biodiversity hotspot. Ideal for nature lovers, birders, and families. Waterfalls, wild orchids, and endemic wildlife.",
+    itinerary: [
+      {
+        day: '01',
+        title: 'Kolad → Tamhini Forest → Waterfall Lunch → Return',
+        detail: 'Morning departure from Pune. Enter Tamhini wildlife corridor. Guided nature walk identifying endemic birds and medicinal plants. Trek to three seasonal waterfalls. Riverside packed lunch. Return by evening.',
+        highlights: ['Endemic bird watching', 'Wild orchids', 'Three waterfalls', 'Butterfly meadow', 'Medicinal plant walk'],
+      },
+    ],
+    inclusions: ['Naturalist guide', 'Forest packed lunch', 'Binoculars provided', 'Photography tips'],
+  },
+
+  /* ---- ADD A NEW TREK: Copy the block below, uncomment it, and fill in your details ----
+
+  {
+    id: 9,
+    type: 'trail',
+    emoji: '🏔️',
+    bg: 'linear-gradient(135deg,#1a1a3a,#3a3a6e)',
+    name: 'Your Trek Name Here',
+    location: 'Village, District',
+    difficulty: 'Moderate',
+    duration: '1 Day',
+    distance: '10 km',
+    altitude: '1000 m',
+    price: 1999,
+    badge: 'Trail',
+    badgeClass: 'badge-trail',
+    desc: 'A short description of the trek experience.',
+    itinerary: [
+      {
+        day: '01',
+        title: 'Day 1 Title',
+        detail: 'Full description of the day.',
+        highlights: ['Highlight 1', 'Highlight 2', 'Highlight 3'],
+      },
+    ],
+    inclusions: ['Guide', 'Lunch', 'First aid'],
+  },
+
+  */
+
+]; /* END OF TREKS DATA */
+
+
+/* ============================================================
+   JAVASCRIPT — No edits needed below unless you're a developer
+   ============================================================ */
+let filtered = [...TREKS];
+
+function filterTreks(type, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  filtered = type === 'all' ? [...TREKS] : TREKS.filter(t => t.type === type);
+  renderTreks();
+}
+
+function renderTreks() {
+  const grid = document.getElementById('treksGrid');
+  grid.innerHTML = filtered.map(t => `
+    <div class="trek-card" onclick="openModal(${t.id})">
+      <div class="trek-img" style="background:${t.bg};">
+        <div class="trek-img-inner">${t.emoji}</div>
+        <span class="trek-badge ${t.badgeClass}">${t.badge}</span>
+        <span class="trek-difficulty">${t.difficulty}</span>
+      </div>
+      <div class="trek-body">
+        <div class="trek-name">${t.name}</div>
+        <div class="trek-loc">📍 ${t.location}</div>
+        <div class="trek-meta">
+          <span>🕐 ${t.duration}</span>
+          <span>📏 ${t.distance}</span>
+          <span>⛰️ ${t.altitude}</span>
+        </div>
+        <p class="trek-desc">${t.desc}</p>
+        <div class="trek-footer">
+          <div class="trek-price">₹${t.price.toLocaleString()} <span>/ person</span></div>
+          <button class="book-btn">Book Now →</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function openModal(id) {
+  const t = TREKS.find(x => x.id === id);
+  if (!t) return;
+  const modal = document.getElementById('modalContent');
+  modal.innerHTML = `
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-hero" style="background:${t.bg};">
+      <span style="font-size:7rem;">${t.emoji}</span>
+      <div class="modal-hero-info">
+        <h2>${t.name}</h2>
+        <p>📍 ${t.location} &nbsp;|&nbsp; ⛰️ ${t.altitude} &nbsp;|&nbsp; 📏 ${t.distance} &nbsp;|&nbsp; ${t.difficulty}</p>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p style="color:var(--textmid);line-height:1.7;margin-bottom:1.5rem;">${t.desc}</p>
+
+      <div class="itinerary-title" style="margin-top:1.5rem;">📋 Complete Itinerary</div>
+      <div style="margin:1rem 0 1.5rem;">
+        ${t.itinerary.map(d => `
+          <div class="day">
+            <div class="day-num">D${d.day}</div>
+            <div>
+              <div class="day-title">${d.title}</div>
+              <div class="day-detail">${d.detail}</div>
+              <div class="day-highlights">${d.highlights.map(h => `<span class="highlight-tag">${h}</span>`).join('')}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+
+      <div class="itinerary-title">✅ What's Included</div>
+      <div class="inclusions">
+        ${t.inclusions.map(inc => `<div class="inc-item"><span class="inc-icon">✓</span> ${inc}</div>`).join('')}
+      </div>
+
+      <div class="booking-form">
+        <h3>Reserve Your Spot</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="bkName" placeholder="Your full name"/>
+          </div>
+          <div class="form-group">
+            <label>Phone / WhatsApp</label>
+            <input type="tel" id="bkPhone" placeholder="+91 98765 43210"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="bkEmail" placeholder="you@email.com"/>
+          </div>
+          <div class="form-group">
+            <label>Trek Date</label>
+            <input type="date" id="bkDate" min="${new Date().toISOString().split('T')[0]}"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Number of Trekkers</label>
+            <select id="bkCount" onchange="updatePrice(${t.price})">
+              <option value="1">1 Person</option>
+              <option value="2">2 People</option>
+              <option value="3">3 People</option>
+              <option value="4">4 People</option>
+              <option value="5">5 People</option>
+              <option value="6">6+ People (Group rate)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Fitness Level</label>
+            <select id="bkFitness">
+              <option>Beginner (occasional walks)</option>
+              <option>Intermediate (regular hiker)</option>
+              <option>Advanced (frequent trekker)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="price-summary" id="priceSummary">
+          <div class="price-row"><span>Trek fee (1 × ₹${t.price.toLocaleString()})</span><span>₹${t.price.toLocaleString()}</span></div>
+          <div class="price-row"><span>GST (5%)</span><span>₹${Math.round(t.price * 0.05).toLocaleString()}</span></div>
+          <div class="price-row total"><span>Total Payable</span><span>₹${Math.round(t.price * 1.05).toLocaleString()}</span></div>
+        </div>
+
+        <button class="confirm-btn" onclick="confirmBooking('${t.name}', ${t.price})">🏔️ Confirm My Adventure</button>
+      </div>
+    </div>
+  `;
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function updatePrice(basePrice) {
+  const count = Math.min(parseInt(document.getElementById('bkCount').value) || 1, 6);
+  const subtotal = basePrice * count;
+  const gst = Math.round(subtotal * 0.05);
+  document.getElementById('priceSummary').innerHTML = `
+    <div class="price-row"><span>Trek fee (${count} × ₹${basePrice.toLocaleString()})</span><span>₹${subtotal.toLocaleString()}</span></div>
+    <div class="price-row"><span>GST (5%)</span><span>₹${Math.round(subtotal * 0.05).toLocaleString()}</span></div>
+    <div class="price-row total"><span>Total Payable</span><span>₹${(subtotal + gst).toLocaleString()}</span></div>
+  `;
+}
+
+function confirmBooking() {
+  const n = document.getElementById('bkName')?.value?.trim();
+  const p = document.getElementById('bkPhone')?.value?.trim();
+  const d = document.getElementById('bkDate')?.value;
+  if (!n || !p || !d) { alert('Please fill in your name, phone, and preferred trek date!'); return; }
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+  document.getElementById('successOverlay').classList.add('show');
+}
+
+function closeModal(e) {
+  if (e && e.target !== document.getElementById('modalOverlay') && !e.target.classList.contains('modal-close')) return;
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+renderTreks();
+</script>
+</body>
+</html>
